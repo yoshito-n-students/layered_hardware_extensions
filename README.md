@@ -1,0 +1,2 @@
+# layered_hardware_joint_limits_extensions
+A ros_control layer implementation for joint_limits_extensions
