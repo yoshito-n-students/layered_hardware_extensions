@@ -1,0 +1,11 @@
+<library path="lib/liblayered_hardware_extended_joint_limits_plugins">
+
+  <class name="layered_hardware_extended_joint_limits/ExtendedJointLimitsLayer"
+         type="layered_hardware_extended_joint_limits::ExtendedJointLimitsLayer"
+         base_class_type="layered_hardware::LayerBase">
+    <description>
+      Hardware layer that implements joint_limits_interface and joint_limits_interface_extensions
+    </description>
+  </class>
+
+</library>
