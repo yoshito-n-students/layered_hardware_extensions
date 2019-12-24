@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(layered_hardware_extended_joint_limits)
+project(layered_hardware_extensions)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -108,7 +108,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES layered_hardware_extended_joint_limits
+  LIBRARIES layered_hardware_extension_plugins
   CATKIN_DEPENDS hardware_interface hardware_interface_extensions joint_limits_interface_extensions layered_hardware pluginlib roscpp urdf
 #  DEPENDS system_lib
 )
@@ -126,15 +126,15 @@ include_directories(
 
 ## Declare a C++ library
 add_library(
-  layered_hardware_extended_joint_limits_plugins
-  src/layered_hardware_extended_joint_limits_plugins.cpp
+  layered_hardware_extension_plugins
+  src/layered_hardware_extension_plugins.cpp
 )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
 add_dependencies(
-  layered_hardware_extended_joint_limits_plugins 
+  layered_hardware_extension_plugins 
   ${${PROJECT_NAME}_EXPORTED_TARGETS} 
   ${catkin_EXPORTED_TARGETS}
 )
@@ -142,7 +142,7 @@ add_dependencies(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/layered_hardware_extended_joint_limits_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/layered_hardware_extensions_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -156,7 +156,7 @@ add_dependencies(
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(
-  layered_hardware_extended_joint_limits_plugins
+  layered_hardware_extension_plugins
   ${catkin_LIBRARIES}
 )
 
@@ -207,7 +207,7 @@ target_link_libraries(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_layered_hardware_extended_joint_limits.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_layered_hardware_extensions.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

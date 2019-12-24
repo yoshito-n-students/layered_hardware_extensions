@@ -1,5 +1,5 @@
-#ifndef LAYERED_HARDWARE_EXTENDED_JOINT_LIMITS_EXTENDED_JOINT_LIMITS_LAYER_HPP
-#define LAYERED_HARDWARE_EXTENDED_JOINT_LIMITS_EXTENDED_JOINT_LIMITS_LAYER_HPP
+#ifndef LAYERED_HARDWARE_EXTENSIONS_EXTENDED_JOINT_LIMITS_LAYER_HPP
+#define LAYERED_HARDWARE_EXTENSIONS_EXTENDED_JOINT_LIMITS_LAYER_HPP
 
 #include <list>
 #include <string>
@@ -10,7 +10,7 @@
 #include <hardware_interface_extensions/posveleff_command_interface.hpp>
 #include <joint_limits_interface_extensions/joint_limits_interface_extensions.hpp>
 #include <layered_hardware/joint_limits_layer.hpp>
-#include <layered_hardware_extended_joint_limits/common_namespaces.hpp>
+#include <layered_hardware_extensions/common_namespaces.hpp>
 #include <ros/console.h>
 #include <ros/duration.h>
 #include <ros/node_handle.h>
@@ -19,7 +19,7 @@
 
 #include <boost/foreach.hpp>
 
-namespace layered_hardware_extended_joint_limits {
+namespace layered_hardware_extensions {
 
 class ExtendedJointLimitsLayer : public lh::JointLimitsLayer {
 public:
@@ -77,6 +77,6 @@ private:
   jlie::PosVelJointSaturationInterface posvel_iface_;
   jlie::PosVelEffJointSaturationInterface posveleff_iface_;
 };
-} // namespace layered_hardware_extended_joint_limits
+} // namespace layered_hardware_extensions
 
 #endif
