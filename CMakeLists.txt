@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   layered_hardware
   pluginlib
   roscpp
+  transmission_interface_extensions
   urdf
 )
 
@@ -109,7 +110,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES layered_hardware_extension_plugins
-  CATKIN_DEPENDS hardware_interface hardware_interface_extensions joint_limits_interface_extensions layered_hardware pluginlib roscpp urdf
+  CATKIN_DEPENDS hardware_interface hardware_interface_extensions joint_limits_interface_extensions layered_hardware pluginlib roscpp transmission_interface_extensions urdf
 #  DEPENDS system_lib
 )
 
