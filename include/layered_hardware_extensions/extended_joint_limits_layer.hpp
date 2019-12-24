@@ -56,6 +56,11 @@ public:
     return true;
   }
 
+  virtual bool prepareSwitch(const std::list< hi::ControllerInfo > &start_list,
+                             const std::list< hi::ControllerInfo > &stop_list) {
+    return lh::JointLimitsLayer::prepareSwitch(start_list, stop_list);
+  }
+
   virtual void doSwitch(const std::list< hi::ControllerInfo > &start_list,
                         const std::list< hi::ControllerInfo > &stop_list) {
     lh::JointLimitsLayer::doSwitch(start_list, stop_list);
