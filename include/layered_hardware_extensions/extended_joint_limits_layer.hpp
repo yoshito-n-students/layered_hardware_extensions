@@ -41,7 +41,7 @@ public:
     // extract the robot model from the given URDF, which contains joint limits info
     urdf::Model urdf_model;
     if (!urdf_model.initString(urdf_str)) {
-      ROS_ERROR("JointLimitsLayer::init(): Failed to parse URDF");
+      ROS_ERROR("ExtendedJointLimitsLayer::init(): Failed to parse URDF");
       return false;
     }
 
