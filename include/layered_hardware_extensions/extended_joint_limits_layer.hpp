@@ -48,10 +48,12 @@ public:
     // associate joints already registered in the joint interface of the hardware
     // and joint limits loaded from the URDF.
     // associated pairs will be stored in the limits interface.
-    tieJointsAndLimits< hi::PosVelJointInterface, jlie::PosVelJointSaturationHandle >(
-        hw, urdf_model, &posvel_iface_);
-    tieJointsAndLimits< hie::PosVelEffJointInterface, jlie::PosVelEffJointSaturationHandle >(
-        hw, urdf_model, &posveleff_iface_);
+    tieJointsAndLimits< hi::PosVelJointInterface, jlie::PosVelJointSaturationHandle,
+                        jlie::PosVelJointSoftLimitsHandle >(hw, urdf_model, &posvel_iface_,
+                                                            &posvel_soft_iface_);
+    tieJointsAndLimits< hie::PosVelEffJointInterface, jlie::PosVelEffJointSaturationHandle,
+                        jlie::PosVelEffJointSoftLimitsHandle >(hw, urdf_model, &posveleff_iface_,
+                                                               &posveleff_soft_iface_);
 
     return true;
   }
@@ -76,11 +78,16 @@ public:
     // saturate joint commands
     posvel_iface_.enforceLimits(period);
     posveleff_iface_.enforceLimits(period);
+    posvel_soft_iface_.enforceLimits(period);
+    posveleff_soft_iface_.enforceLimits(period);
   }
 
 private:
   jlie::PosVelJointSaturationInterface posvel_iface_;
   jlie::PosVelEffJointSaturationInterface posveleff_iface_;
+
+  jlie::PosVelJointSoftLimitsInterface posvel_soft_iface_;
+  jlie::PosVelEffJointSoftLimitsInterface posveleff_soft_iface_;
 };
 } // namespace layered_hardware_extensions
 
