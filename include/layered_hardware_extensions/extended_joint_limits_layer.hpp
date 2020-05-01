@@ -66,6 +66,13 @@ public:
   virtual void doSwitch(const std::list< hi::ControllerInfo > &start_list,
                         const std::list< hi::ControllerInfo > &stop_list) {
     lh::JointLimitsLayer::doSwitch(start_list, stop_list);
+
+    // reset position-based joint limits
+    // because new position-based controllers may be starting
+    posvel_iface_.reset();
+    posveleff_iface_.reset();
+    posvel_soft_iface_.reset();
+    posveleff_soft_iface_.reset();
   }
 
   virtual void read(const ros::Time &time, const ros::Duration &period) {
