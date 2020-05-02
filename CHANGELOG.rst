@@ -2,6 +2,10 @@
 Changelog for package layered_hardware_extensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.4 (2020-05-03)
+------------------
+* Reset position-based joint limits when switching controllers
+
 0.0.3 (2019-12-25)
 ------------------
 * Support soft joint limits
