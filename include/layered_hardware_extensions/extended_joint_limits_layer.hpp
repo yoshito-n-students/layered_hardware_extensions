@@ -17,8 +17,6 @@
 #include <ros/time.h>
 #include <urdf/model.h>
 
-#include <boost/foreach.hpp>
-
 namespace layered_hardware_extensions {
 
 class ExtendedJointLimitsLayer : public lh::JointLimitsLayer {

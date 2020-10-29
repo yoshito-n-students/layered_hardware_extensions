@@ -7,16 +7,13 @@
 #include <layered_hardware_extensions/common_namespaces.hpp>
 #include <ros/duration.h>
 
-#include <boost/math/special_functions/fpclassify.hpp>
-
 namespace layered_hardware_extensions {
 
 // command writers
 
 struct ActuatorPosVelCommandWriter {
   static void write(lh::DummyActuatorData *const data, const ros::Duration &period) {
-    namespace bm = boost::math;
-    if (!bm::isnan(data->pos_cmd) && !bm::isnan(data->vel_cmd)) {
+    if (!std::isnan(data->pos_cmd) && !std::isnan(data->vel_cmd)) {
       const double vel_limit((data->pos_cmd - data->pos) / period.toSec());
       data->vel = (vel_limit > 0.) ? std::min(vel_limit, std::abs(data->vel_cmd))
                                    : std::max(vel_limit, -std::abs(data->vel_cmd));
@@ -28,8 +25,7 @@ struct ActuatorPosVelCommandWriter {
 
 struct ActuatorPosVelEffCommandWriter {
   static void write(lh::DummyActuatorData *const data, const ros::Duration &period) {
-    namespace bm = boost::math;
-    if (!bm::isnan(data->pos_cmd) && !bm::isnan(data->vel_cmd) && !bm::isnan(data->eff_cmd)) {
+    if (!std::isnan(data->pos_cmd) && !std::isnan(data->vel_cmd) && !std::isnan(data->eff_cmd)) {
       const double vel_limit((data->pos_cmd - data->pos) / period.toSec());
       data->vel = (vel_limit > 0.) ? std::min(vel_limit, std::abs(data->vel_cmd))
                                    : std::max(vel_limit, -std::abs(data->vel_cmd));

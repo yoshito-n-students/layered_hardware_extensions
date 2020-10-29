@@ -2,6 +2,10 @@
 Changelog for package layered_hardware_extensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.5 (2020-XX-XX)
+------------------
+* c++11
+
 0.0.4 (2020-05-03)
 ------------------
 * Reset position-based joint limits when switching controllers
